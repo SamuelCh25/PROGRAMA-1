@@ -587,3 +587,51 @@ def repartir_cartas(numero_jugadores, cartas_por_jugador):
 
 repartir_cartas(4,2)
 '''
+
+#MULTIPLICAR MATICES 
+
+'''
+def multiplicar_matices(matriz1, matriz2):
+    resultado = []
+    for i in range(len(matriz1)):
+      fila = []
+      for j in range(len(matriz2[0])):
+        suma = 0
+        for k in range(len(matriz2)):
+          suma += matriz1[i][k] * matriz2[k][j]
+        fila.append(suma)
+      resultado.append(fila)
+    return resultado 
+
+matriz1 = [[1,2], [3,4]]
+matriz2 = [[5,6], [7,8]]
+resultado = multiplicar_matices(matriz1, matriz2)
+print(resultado)
+'''
+#CORTE 3 
+
+'''
+divisas={'Euro':'€', 'Dollar':'$', 'Yen':'¥'}
+usuario = input("Hola, que divisa desea encontrar? ")
+
+def divisaquequiereusuario():
+  if usuario in divisas:
+     simbolo = divisas[usuario]
+     print("El símbolo de " + usuario + " es " + simbolo)
+    
+  else:
+     print("La divisa que desea buscar no se encuentra en el diccionario.")
+    
+divisaquequiereusuario()
+'''
+
+#####
+
+# Pedir al usuario un número
+numero = int(input("Introduce un número: "))
+
+# Crear un diccionario con claves desde 1 hasta el número y valores como los cuadrados de las claves
+diccionario_cuadrados = {i: i**2 for i in range(1, numero + 1)}
+
+# Imprimir el diccionario resultante
+print(diccionario_cuadrados)
