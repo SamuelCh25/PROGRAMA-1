@@ -966,3 +966,40 @@ insert(): añade un elemento en la posición que se indica.
 pop(): elimina el elemento de la posición que se indica.
 reverse(): invierte el orden de la lista
 '''
+
+'''
+def suma_pares(lista):
+  total = 0
+  for numero in lista:
+      if numero % 2 == 0:
+          total += numero
+  return total
+
+# Lista de ejemplo
+numeros = [1, 2, 3, 4, 5, 6, 7, 8]
+
+# Llamamos a la función para obtener la suma de los números pares
+resultado = suma_pares(numeros)
+
+# Imprimimos el resultado
+print("La suma de los números pares en la lista es:", resultado)
+
+Caso de prueba 1:
+
+Entrada (lista): [1, 2, 3, 4, 5, 6, 7, 8]
+Proceso:
+Inicializamos total en 0.
+Iteramos a través de la lista:
+En el primer paso, numero es 1, que es impar, por lo que no se suma al total.
+En el segundo paso, numero es 2, que es par, por lo que se suma al total (total = 0 + 2 = 2).
+Continuamos iterando de la misma manera.
+Salida esperada (resultado): 20 (que es la suma de los números pares en la lista).
+Caso de prueba 2:
+
+Entrada (lista): [3, 5, 7] (lista sin números pares)
+Proceso:
+Inicializamos total en 0.
+Iteramos a través de la lista:
+Todos los números son impares, por lo que ninguno se suma al total.
+Salida esperada (resultado): 0 (ya que no hay números pares en la lista).
+'''
