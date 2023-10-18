@@ -627,11 +627,18 @@ divisaquequiereusuario()
 
 #####
 
-# Pedir al usuario un número
+'''
 numero = int(input("Introduce un número: "))
 
-# Crear un diccionario con claves desde 1 hasta el número y valores como los cuadrados de las claves
 diccionario_cuadrados = {i: i**2 for i in range(1, numero + 1)}
 
-# Imprimir el diccionario resultante
 print(diccionario_cuadrados)
+'''
+
+'''
+range(start, stop, step)
+
+start: El valor inicial del rango (inclusive).
+stop: El valor final del rango (exclusivo).
+step (opcional): El incremento entre los valores sucesivos en el rango. Si no se especifica, se asume un valor de 1.
+'''
