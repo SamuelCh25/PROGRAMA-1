@@ -642,3 +642,327 @@ start: El valor inicial del rango (inclusive).
 stop: El valor final del rango (exclusivo).
 step (opcional): El incremento entre los valores sucesivos en el rango. Si no se especifica, se asume un valor de 1.
 '''
+
+'''
+# Inicializa una lista vacía para almacenar las ventas diarias.
+ventas_diarias = []
+
+# Función para calcular el total de una venta.
+def calcular_total(venta):
+    total = 0
+    for producto in venta:
+        total += producto[1] * producto[2]
+    return total
+
+# Registra las ventas del día. Puedes agregar tantas ventas como desees.
+venta1 = [["Producto A", 3, 10.0], ["Producto B", 2, 5.0]]
+venta2 = [["Producto C", 1, 8.0], ["Producto D", 4, 12.0]]
+
+# Agrega las ventas a la lista de ventas diarias.
+ventas_diarias.append(venta1)
+ventas_diarias.append(venta2)
+
+# Calcula el total de ventas diarias e imprime el resultado.
+total_ventas_diarias = 0
+for venta in ventas_diarias:
+    total_ventas_diarias += calcular_total(venta)
+
+# Imprime el total de ventas diarias.
+print("Registro de Ventas Diarias:")
+for i, venta in enumerate(ventas_diarias, start=1):
+    print(f"Venta {i}:")
+    for producto in venta:
+        print(f"  Producto: {producto[0]}, Cantidad: {producto[1]}, Precio Unitario: ${producto[2]:.2f}")
+    print(f"  Total de la Venta: ${calcular_total(venta):.2f}")
+    print()
+
+print(f"Total de Ventas Diarias: ${total_ventas_diarias:.2f}")
+'''
+
+'''
+# Función para sumar dos matrices
+def sumar_matrices(matriz1, matriz2):
+    # Verifica que las matrices tengan las mismas dimensiones
+    if len(matriz1) != len(matriz2) or len(matriz1[0]) != len(matriz2[0]):
+        return None  # Si las dimensiones no coinciden, no se puede realizar la suma
+
+    # Inicializa una nueva matriz para almacenar el resultado
+    resultado = []
+    for i in range(len(matriz1)):
+        fila_resultado = []
+        for j in range(len(matriz1[0])):
+            suma = matriz1[i][j] + matriz2[i][j]
+            fila_resultado.append(suma)
+        resultado.append(fila_resultado)
+
+    return resultado
+
+# Matrices de ejemplo
+matriz1 = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+matriz2 = [
+    [9, 8, 7],
+    [6, 5, 4],
+    [3, 2, 1]
+]
+
+# Suma las dos matrices
+resultado = sumar_matrices(matriz1, matriz2)
+
+# Imprime las matrices originales
+print("Matriz 1:")
+for fila in matriz1:
+    print(fila)
+
+print("\nMatriz 2:")
+for fila in matriz2:
+    print(fila)
+
+# Imprime la matriz resultante
+if resultado:
+    print("\nResultado de la suma:")
+    for fila in resultado:
+        print(fila)
+else:
+    print("\nLas matrices no tienen las mismas dimensiones, no se pueden sumar.")
+'''
+
+'''
+def matriz_transpuesta(matriz):
+  # Obtiene el número de filas y columnas de la matriz original
+  num_filas = len(matriz)
+  num_columnas = len(matriz[0])
+
+  # Inicializa una nueva matriz para almacenar la matriz transpuesta
+  transpuesta = []
+
+  # Itera sobre las columnas de la matriz original
+  for j in range(num_columnas):
+      # Inicializa una nueva fila para la matriz transpuesta
+      fila_transpuesta = []
+      # Itera sobre las filas de la matriz original
+      for i in range(num_filas):
+          # Agrega el elemento correspondiente a la nueva fila
+          fila_transpuesta.append(matriz[i][j])
+      # Agrega la fila transpuesta a la matriz transpuesta
+      transpuesta.append(fila_transpuesta)
+
+  return transpuesta
+
+# Matriz de ejemplo
+matriz_original = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+]
+
+# Obtiene la matriz transpuesta
+matriz_transpuesta_resultante = matriz_transpuesta(matriz_original)
+
+# Imprime la matriz original
+print("Matriz Original:")
+for fila in matriz_original:
+  print(fila)
+
+# Imprime la matriz transpuesta
+print("\nMatriz Transpuesta:")
+for fila in matriz_transpuesta_resultante:
+  print(fila)
+'''
+
+'''
+def multiplicar_matrices(matriz1, matriz2):
+  # Verifica que las matrices sean compatibles para la multiplicación
+  if len(matriz1[0]) != len(matriz2):
+      return None  # No se pueden multiplicar si el número de columnas de la primera matriz no coincide con el número de filas de la segunda matriz
+
+  # Obtiene las dimensiones de las matrices
+  num_filas_matriz1 = len(matriz1)
+  num_columnas_matriz1 = len(matriz1[0])
+  num_columnas_matriz2 = len(matriz2[0]
+
+  # Inicializa una nueva matriz para almacenar el resultado
+  resultado = [[0 for _ in range(num_columnas_matriz2)] for _ in range(num_filas_matriz1)]
+
+  # Realiza la multiplicación de matrices
+  for i in range(num_filas_matriz1):
+      for j in range(num_columnas_matriz2):
+          for k in range(num_columnas_matriz1):
+              resultado[i][j] += matriz1[i][k] * matriz2[k][j]
+
+  return resultado
+
+# Matrices de ejemplo
+matriz1 = [
+  [1, 2, 3],
+  [4, 5, 6]
+]
+
+matriz2 = [
+  [7, 8],
+  [9, 10],
+  [11, 12]
+]
+
+# Realiza la multiplicación de matrices
+resultado_multiplicacion = multiplicar_matrices(matriz1, matriz2)
+
+# Imprime las matrices originales
+print("Matriz 1:")
+for fila in matriz1:
+  print(fila)
+
+print("\nMatriz 2:")
+for fila in matriz2:
+  print(fila)
+
+# Imprime la matriz resultante
+if resultado_multiplicacion:
+  print("\nResultado de la multiplicación:")
+  for fila in resultado_multiplicacion:
+      print(fila)
+else:
+  print("\nLas matrices no son compatibles para la multiplicación.")
+'''
+
+'''
+def encontrar_maximo_en_matriz(matriz):
+  # Verifica si la matriz está vacía
+  if not matriz:
+      return None
+
+  # Inicializa el valor máximo con el primer elemento de la matriz
+  maximo = matriz[0][0]
+
+  # Itera sobre la matriz para encontrar el máximo
+  for fila in matriz:
+      for elemento in fila:
+          if elemento > maximo:
+              maximo = elemento
+
+  return maximo
+
+# Matriz de ejemplo
+matriz = [
+  [3, 7, 1],
+  [4, 12, 9],
+  [6, 8, 5]
+]
+
+# Encuentra el elemento máximo en la matriz
+maximo_elemento = encontrar_maximo_en_matriz(matriz)
+
+# Imprime la matriz original
+print("Matriz:")
+for fila in matriz:
+  print(fila)
+
+# Imprime el elemento máximo encontrado
+if maximo_elemento is not None:
+  print(f"\nEl elemento máximo en la matriz es: {maximo_elemento}")
+else:
+  print("La matriz está vacía.")
+'''
+
+'''
+def producto_escalar(matriz, numero):
+  # Inicializa una nueva matriz para almacenar el resultado
+  resultado = []
+
+  # Itera sobre la matriz original y multiplica cada elemento por el número
+  for fila in matriz:
+      nueva_fila = [elemento * numero for elemento in fila]
+      resultado.append(nueva_fila)
+
+  return resultado
+
+# Matriz de ejemplo
+matriz = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+]
+
+# Número por el cual multiplicar la matriz
+escalar = 2
+
+# Realiza el producto escalar de la matriz
+matriz_resultante = producto_escalar(matriz, escalar)
+
+# Imprime la matriz original
+print("Matriz Original:")
+for fila in matriz:
+  print(fila)
+
+# Imprime la matriz resultante
+print("\nMatriz Resultante:")
+for fila in matriz_resultante:
+  print(fila)
+'''
+
+'''
+En lenguajes de programación como Python, las matrices pueden representarse como listas anidadas (listas de listas) o utilizando bibliotecas especializadas como NumPy. Aquí hay un ejemplo simple de cómo crear y utilizar una matriz en Python:
+
+# Crear una matriz como una lista de listas
+matriz = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+# Acceder a un elemento de la matriz
+elemento = matriz[1][2]  # Acceder al elemento en la fila 1, columna 2 (valor 6)
+
+# Recorrer la matriz y realizar operaciones
+for fila in matriz:
+    for elemento in fila:
+        # Realizar alguna operación con cada elemento
+
+# Obtener la longitud de la matriz (número de filas)
+num_filas = len(matriz)
+
+# Obtener la longitud de una fila específica (número de columnas)
+num_columnas = len(matriz[0])
+'''
+
+'''
+Un "while" es una estructura de control en programación que se utiliza para crear bucles o ciclos. Un bucle es una construcción que permite que un conjunto de instrucciones se ejecute repetidamente mientras se cumpla una condición específica. En otras palabras, un bucle "while" permite ejecutar un bloque de código repetidamente mientras la condición dada sea verdadera
+
+while condición:
+  # Código a ejecutar mientras la condición sea verdadera
+
+numero = 1
+while numero <= 5:
+    print(numero)
+    numero += 1  # Incrementa el valor de la variable para avanzar en el bucle
+'''
+
+'''
+Un "for" es una estructura de control en programación que se utiliza para crear bucles o ciclos. Un bucle "for" permite ejecutar un conjunto de instrucciones un número específico de veces o iterar sobre elementos de una secuencia (como una lista o una cadena) de manera ordenada. Esta estructura es especialmente útil cuando sabes cuántas veces deseas repetir una acción o cuántos elementos quieres recorrer.
+
+numeros = [1, 2, 3, 4, 5]
+for numero in numeros:
+    print(numero)
+
+En este ejemplo, el bucle "for" recorre la lista numeros, y en cada iteración, la variable numero toma el valor del siguiente elemento de la lista. El código dentro del bucle se ejecuta una vez por cada elemento de la lista.
+'''
+
+'''
+Append(): adiciona un elemento a la lista
+Index(): retorna el índice del elemento de la lista
+Remove(): elimina un elemento de la lista
+Sort(): ordena los elementos de la lista
+clear(): elimina todos los elementos de la lista
+copy(): arroja una copia de la lista.
+count(): arroja el número de elementos con el valor
+indicado.
+extend(): añade los elementos de una lista (o cualquier
+iterador) al final de la lista actual.
+insert(): añade un elemento en la posición que se indica.
+pop(): elimina el elemento de la posición que se indica.
+reverse(): invierte el orden de la lista
+'''
